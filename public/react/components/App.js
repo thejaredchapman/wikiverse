@@ -7,6 +7,11 @@ import apiURL from '../api';
 export const App = () => {
 
 	const [pages, setPages] = useState([]);
+	const [title, setTitle] = useState([]);
+	const [author, setAuthor] = useState([]);
+	const [content, setContent] = useState([]);
+	const [tags,setTags] = useState([]);
+	const [dateCreated, setDateCreated] = useState([]);
 
 	async function fetchPages(){
 		try {
@@ -17,6 +22,7 @@ export const App = () => {
 			console.log("Oh no an error! ", err)
 		}
 	}
+
 
 	useEffect(() => {
 		fetchPages();
