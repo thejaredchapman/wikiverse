@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
+import { Page } from './Page';
 import "../../style.css"
 
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
-import { Page } from "./Page";
+
 
 export const App = () => {
 
@@ -13,7 +14,6 @@ export const App = () => {
 	const [isAddingItem, setIsAddingItem] = useState(false);
 	const [name, setName] = useState("");
 	const [title, setTitle] = useState("");
-	const [author, setAuthor] = useState("");
 	const [content, setContent] = useState("");
 	const [tags,setTags] = useState("");
 	const [dateCreated, setDateCreated] = useState("");
@@ -59,17 +59,17 @@ export const App = () => {
 						src="https://s2.r29static.com/bin/entry/fe8/0,46,460,460/1200x1200,80/1256096/image.jpg"
 						href="https://www.wikipedia.org/"
 						alt = "Looking lost in the encyclopedia"></img>	
-     					<h2 className="display-2">Wikiverse Project</h2>
+     					<h3 className="display-2">Wikiverse Project</h3>
 						<p className="lead">
-						Welcome to the Multiverse WikiVerse Project
+						Mutliverse Project done by Jared Chapman
 						</p>
 				</div>
+				
 			</div>
 		</div>
-		<div className="home">
+		<div className="Add Page">
 			<h1>WikiVerse Project</h1>
-			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} setPages={setPages} />
+			<h2>An interesting Read 📚</h2>
 			{isAddingItem ? (
           <div>
             <form onSubmit={handleSubmit}>
@@ -81,19 +81,12 @@ export const App = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
               /></p>
-			  <p><input
-                type="name"
-                placeholder="name"
-                aria-label="name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              /></p>
               <p><input
                 type="text"
                 placeholder="Author"
                 aria-label="Author"
-                onChange={(e) => setAuthor(e.target.value)}
-                value={author}
+                onChange={(e) => setName(e.target.value)}
+                value={name}
               /></p>
               <p><input
                 type="text"
@@ -104,8 +97,8 @@ export const App = () => {
               /></p>
               <p><input
                 type="text"
-                placeholder="tags"
-                aria-label="tags"
+                placeholder="Tags"
+                aria-label="Tags"
                 onChange={(e) => setTags(e.target.value)}
                 value={tags}
               /></p>
@@ -113,7 +106,7 @@ export const App = () => {
                 type="text"
                 placeholder="Date Created"
                 aria-label="Date Created"
-                onChange={(e) => setdateCreated(e.target.value)}
+                onChange={(e) => setDateCreated(e.target.value)}
                 value={dateCreated}
               /></p>
              	 <button type="submit">Submit Page</button>
